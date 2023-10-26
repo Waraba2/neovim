@@ -31,8 +31,8 @@ return packer.startup(function(use)
 
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
 
-	-- tmux & split window navigation
 	use("christoomey/vim-tmux-navigator")
+	use("aserowy/tmux.nvim") -- navigate tmux - nvim
 
 	use("szw/vim-maximizer") -- maximizes and restores surrent window
 
@@ -42,9 +42,6 @@ return packer.startup(function(use)
 
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
-
-	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
 
 	-- icons
 	use("nvim-tree/nvim-web-devicons")
@@ -60,8 +57,36 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
-	-- harpoon for file navigation
-	use("ThePrimeagen/harpoon")
+	use({ "MunifTanjim/nui.nvim" })
+	-- file explorer
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			{
+				"s1n7ax/nvim-window-picker",
+				version = "2.*",
+				config = function()
+					require("window-picker").setup({
+						filter_rules = {
+							include_current_win = false,
+							autoselect_one = true,
+							-- filter using buffer options
+							bo = {
+								-- if the file type is one of following, the window will be ignored
+								filetype = { "neo-tree", "neo-tree-popup", "notify" },
+								-- if the buffer type is one of following, the window will be ignored
+								buftype = { "terminal", "quickfix" },
+							},
+						},
+					})
+				end,
+			},
+		},
+	})
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin

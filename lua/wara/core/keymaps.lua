@@ -24,12 +24,17 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- plugin keymaps
+local options = { noremap = true }
+keymap.set("n", "<C-h>", [[<cmd>lua require("tmux").move_left()<cr>]], options)
+keymap.set("n", "<C-j>", [[<cmd>lua require("tmux").move_bottom()<cr>]], options)
+keymap.set("n", "<C-k>", [[<cmd>lua require("tmux").move_top()<cr>]], options)
+keymap.set("n", "<C-l>", [[<cmd>lua require("tmux").move_right()<cr>]], options)
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+-- nvim-neo-tree
+keymap.set("n", "<leader>e", ":Neotree reveal<cr>")
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore

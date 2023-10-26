@@ -37,4 +37,4 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
-
+opt.colorcolumn = "100"
