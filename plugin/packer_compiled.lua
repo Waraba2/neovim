@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/hamidouwaraballo/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
     url = "https://github.com/vim-scripts/ReplaceWithRegister"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/Users/hamidouwaraballo/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/hamidouwaraballo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -123,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hamidouwaraballo/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/Users/hamidouwaraballo/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
   },
   ["lspkind.nvim"] = {
     loaded = true,

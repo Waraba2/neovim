@@ -29,7 +29,7 @@ return packer.startup(function(use)
 	-- lua functions that many plugins use
 	use("nvim-lua/plenary.nvim")
 
-	use({ "catppuccin/nvim", as = "catppuccin" }) -- preferred colorscheme
+	use("sainnhe/gruvbox-material") -- preferred colorscheme
 
 	use("christoomey/vim-tmux-navigator")
 	use("aserowy/tmux.nvim") -- navigate tmux - nvim

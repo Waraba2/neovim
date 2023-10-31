@@ -23,6 +23,11 @@ require("transparent").setup({ -- Optional, you don't have to run setup.
 		"CursorLineNr",
 		"EndOfBuffer",
 	},
-	extra_groups = {}, -- table: additional groups that should be cleared
+	extra_groups = {
+		"NeoTreeNormal",
+		"NeoTreeNormalNC",
+	}, -- table: additional groups that should be cleared
 	exclude_groups = {}, -- table: groups you don't want to clear
 })
+
+require("transparent").clear_prefix("NeoTree")

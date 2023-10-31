@@ -94,6 +94,13 @@ lspconfig.pyright.setup({
 	on_attach = on_attach,
 	filetypes = { "python" },
 })
+
+-- C c++
+lspconfig["clangd"].setup({
+	cmd = { "clangd", "--background-index" },
+	filetypes = { "c", "cpp", "objc", "objcpp" },
+})
+
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
