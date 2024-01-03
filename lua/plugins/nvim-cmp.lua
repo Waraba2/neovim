@@ -1,33 +1,50 @@
--- import nvim-cmp plugin safely
-local cmp_status, cmp = pcall(require, "cmp")
-if not cmp_status then
-  return
-end
-
--- import luasnip plugin safely
-local luasnip_status, luasnip = pcall(require, "luasnip")
-if not luasnip_status then
-  return
-end
-
--- import lspkind plugin safely
-local lspkind_status, lspkind = pcall(require, "lspkind")
-if not lspkind_status then
-  return
-end
-
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
-require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.opt.completeopt = "menu,menuone,noselect" -- check docs
 return {
+	{
+		"MunifTanjim/nui.nvim",
+	},
   {
-    "MunifTanjim/nui.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
+  -- snippets
+	{
+		"L3MON4D3/LuaSnip", -- snippet engine
+		dependencies = {
+			"saadparwaiz1/cmp_luasnip", -- for autocompletion
+			"rafamadriz/friendly-snippets", -- useful snippets
+		},
+	},
   -- autocompletion
-  {
-    "hrsh7th/nvim-cmp",
-    config = function ()
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+      -- import nvim-cmp plugin safely
+      local cmp_status, cmp = pcall(require, "cmp")
+      if not cmp_status then
+        return
+      end
+
+      -- import luasnip plugin safely
+      local luasnip_status, luasnip = pcall(require, "luasnip")
+      if not luasnip_status then
+        return
+      end
+
+      -- import lspkind plugin safely
+      local lspkind_status, lspkind = pcall(require, "lspkind")
+      if not lspkind_status then
+        return
+      end
+
+
+
+      -- load vs-code like snippets from plugins (e.g. friendly-snippets)
+      require("luasnip/loaders/from_vscode").lazy_load()
+
+      vim.opt.completeopt = "menu,menuone,noselect" -- check docs
+
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -58,13 +75,8 @@ return {
           }),
         },
       })
-    end 
-  },-- completion plugin
-  {"hrsh7th/cmp-buffer"},-- source for text in buffer
-  {"hrsh7th/cmp-path"}, -- source for file system paths
-	-- snippets
-  {"L3MON4D3/LuaSnip"}, -- snippet engine
-  {"saadparwaiz1/cmp_luasnip"}, -- for autocompletion
-  {"rafamadriz/friendly-snippets"}, -- useful snippets
+end,
+	}, -- completion plugin
+	{ "hrsh7th/cmp-buffer" }, -- source for text in buffer
+	{ "hrsh7th/cmp-path" }, -- source for file system paths
 }
-
