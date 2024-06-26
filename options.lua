@@ -1,5 +1,10 @@
 local opt = vim.opt -- for conciseness
 
+-- This file is automatically loaded by plugins.core
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
