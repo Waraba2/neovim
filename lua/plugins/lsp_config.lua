@@ -13,8 +13,11 @@ return {
 			local configs = require("mason-lspconfig")
 			configs.setup({
 				ensure_installed = {
-				"lua_ls",
-				"tsserver"
+          "lua_ls",
+          "tsserver",
+          "svelte",
+          "tailwindcss",
+          "prismals"
 				},
 				automatic_installation = true
 			})
