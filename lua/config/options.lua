@@ -1,5 +1,5 @@
 local opt = vim.opt -- for conciseness
-
+vim.o.termguicolors = true
 -- This file is automatically loaded by plugins.core
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -43,3 +43,4 @@ opt.splitbelow = true
 opt.iskeyword:append("-")
 
 opt.colorcolumn = "100"
+

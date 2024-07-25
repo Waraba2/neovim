@@ -6,8 +6,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("options")
-require("keymaps")
+require("config.options")
+require("config.keymaps")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -19,5 +19,5 @@ require("lazy").setup({
 	-- colorscheme that will be used when installing plugins.
 	-- install = { colorscheme = { "habamax" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	checker = { enabled = false },
 })

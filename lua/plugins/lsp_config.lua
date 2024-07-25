@@ -13,8 +13,11 @@ return {
 			local configs = require("mason-lspconfig")
 			configs.setup({
 				ensure_installed = {
-				"lua_ls",
-				"tsserver"
+          "lua_ls",
+          "tsserver",
+          "svelte",
+          "tailwindcss",
+          "prismals"
 				},
 				automatic_installation = true
 			})
@@ -22,17 +25,24 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
-			local capabilities = require('cmp_nvim_lsp').default_capabilities() -- snipets config
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      { "antosha417/nvim-lsp-file-operations", config = true },
+      { "folke/neodev.nvim", opts = {} },
+    },
 
-			local configs = require("lspconfig")
-			configs.lua_ls.setup({
-				capabilities = capabilities
-			})
-			configs.tsserver.setup({
-				capabilities = capabilities
-			})
-		end
+    config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities() -- snipets config
+
+      local configs = require("lspconfig")
+      configs.lua_ls.setup({
+        capabilities = capabilities
+      })
+      configs.tsserver.setup({
+        capabilities = capabilities
+      })
+    end,
 	},
 	{
 		'nvimdev/lspsaga.nvim',

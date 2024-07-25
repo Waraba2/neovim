@@ -16,12 +16,9 @@ return {
         },
       })
 
-
       -- make autopairs and completion work together
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end
   }, -- autoclose parens, brackets, quotes, etc...
   { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }, -- autoclose tags
-
-
 }

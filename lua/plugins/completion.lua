@@ -15,9 +15,14 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-buffer", -- source for text in buffer
+      "hrsh7th/cmp-path", -- source for file system paths
+    },
 		config = function()
 			-- Set up nvim-cmp.
 			local cmp = require("cmp")
+      local lspkind = require("lspkind")
 			-- load vs-code like snippets from plugins (e.g. friendly-snippets)
 			require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -40,11 +45,17 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = 'luasnip' },
-				}, {
-					{ name = "buffer" },
+          { name = "nvim_lsp" },
+          { name = 'luasnip' },
+          { name = "buffer" },
 				}),
+        -- configure lspkind for vs-code like icons
+        formatting = {
+          format = lspkind.cmp_format({
+            maxwidth = 50,
+            ellipsis_char = "...",
+          }),
+        },
 			})
 		end,
 	},

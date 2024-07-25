@@ -5,7 +5,6 @@ return {
 		config = function()
 			local configs = require("indentmini")
 			configs.setup({
-				char = "|",
 				exclude = {
 					"markdown",
 				},

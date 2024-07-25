@@ -19,6 +19,8 @@ return {
 				exclude_groups = {},
 			})
 			require('transparent').clear_prefix('NeoTree')
+      require('transparent').clear_prefix('bufferline')
+
 			-- require('transparent').clear_prefix('lualine')
 		end
 	}
