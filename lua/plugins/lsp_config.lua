@@ -25,17 +25,24 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
-			local capabilities = require('cmp_nvim_lsp').default_capabilities() -- snipets config
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      { "antosha417/nvim-lsp-file-operations", config = true },
+      { "folke/neodev.nvim", opts = {} },
+    },
 
-			local configs = require("lspconfig")
-			configs.lua_ls.setup({
-				capabilities = capabilities
-			})
-			configs.tsserver.setup({
-				capabilities = capabilities
-			})
-		end
+    config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities() -- snipets config
+
+      local configs = require("lspconfig")
+      configs.lua_ls.setup({
+        capabilities = capabilities
+      })
+      configs.tsserver.setup({
+        capabilities = capabilities
+      })
+    end,
 	},
 	{
 		'nvimdev/lspsaga.nvim',

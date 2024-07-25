@@ -6,7 +6,6 @@ return {
 		configs.setup({
 			options = {
 				theme = 'gruvbox'
-			}
-		})
+			},})
 	end
 }

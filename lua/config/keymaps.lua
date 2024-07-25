@@ -18,3 +18,14 @@ vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
+
+--Bufferline:
+-- Cycle to the next buffer
+vim.api.nvim_set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>',
+  { noremap = true, silent = true })
+-- Cycle to the previous buffer
+vim.api.nvim_set_keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>',
+  { noremap = true, silent = true })
+-- Close the current buffer
+vim.api.nvim_set_keymap('n', '<Leader>bc', ':bd<CR>',
+  { noremap = true, silent = true })

@@ -13,10 +13,12 @@ return {
     neo_tree.setup({
       filesystem = {
         filtered_items = {
-          visible = true, -- when true, they will just be displayed differently than normal items
-          always_show_by_pattern = { -- uses glob style patterns
+          visible = false, -- when true, they will just be displayed differently than normal items
+          hide_gitignored = false,
+          always_show = { -- uses glob style patterns
             ".gitignored",
-            ".env*",
+            ".gitignore",
+            ".env",
           },
         },
       },

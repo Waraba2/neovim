@@ -1,33 +1,34 @@
 return {
 	{
-		'nvimtools/none-ls.nvim',
+		"nvimtools/none-ls.nvim",
 		dependencies = {
 			"nvimtools/none-ls-extras.nvim",
 		},
+    debug = false,
 		config = function()
 			local null_ls = require("null-ls")
 
 			null_ls.setup({
 				sources = {
-					-- lua
+					-- Lua
 					null_ls.builtins.formatting.stylua,
 
-					-- tailwindcss
+					-- Tailwind CSS
 					null_ls.builtins.formatting.prettier,
 
-					-- python
+					-- Python
 					null_ls.builtins.formatting.black,
 					null_ls.builtins.formatting.isort,
 
-					-- spell
+					-- Spell checking
 					null_ls.builtins.completion.spell,
 
-					-- Javascript
-					require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+					-- JavaScript (requires none-ls-extras.nvim)
+					require("none-ls.diagnostics.eslint"),
 				},
 			})
 
 			vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
-		end
-	}
+		end,
+	},
 }
