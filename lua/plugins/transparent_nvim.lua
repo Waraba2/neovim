@@ -10,7 +10,7 @@ return {
 					'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
 					'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
 					'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
-					'EndOfBuffer',
+					'EndOfBuffer', 'Folded', 'FoldColumn'
 				},
 				extra_groups = {
 					"NeoTreeNormal",
@@ -20,8 +20,7 @@ return {
 			})
 			require('transparent').clear_prefix('NeoTree')
       require('transparent').clear_prefix('bufferline')
-
-			-- require('transparent').clear_prefix('lualine')
+      require('transparent').clear_prefix('ufo')
 		end
 	}
 }

@@ -1,5 +1,7 @@
 local opt = vim.opt -- for conciseness
 vim.o.termguicolors = true
+vim.o.encoding = "utf-8" -- Updated encoding line
+
 -- This file is automatically loaded by plugins.core
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -43,4 +45,9 @@ opt.splitbelow = true
 opt.iskeyword:append("-")
 
 opt.colorcolumn = "100"
+
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 
