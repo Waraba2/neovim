@@ -13,8 +13,8 @@ return {
 					'EndOfBuffer', 'Folded', 'FoldColumn'
 				},
 				extra_groups = {
-					"NeoTreeNormal",
-					"NeoTreeNormalNC",
+					-- "NeoTreeNormal",
+					-- "NeoTreeNormalNC",
 				},
 				exclude_groups = {},
 			})

@@ -1,5 +1,7 @@
 -- general keymaps
 
+vim.keymap.set('x', 'y', 'y`><Esc>', { noremap = true }) --- yank and put cursor at the end
+
 vim.keymap.set("i", "jk", "<ESC>") -- allows me to get off insert mode using jk
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>") -- clears search highlights in normal mode
@@ -29,3 +31,8 @@ vim.api.nvim_set_keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>',
 -- Close the current buffer
 vim.api.nvim_set_keymap('n', '<Leader>bc', ':bd<CR>',
   { noremap = true, silent = true })
+
+vim.keymap.set('n', "<leader>cl", "<cmd>LspInfo<cr>")
+vim.keymap.set('n', "<leader>K", vim.lsp.buf.hover)
+vim.keymap.set('n', '<space>ca', function()
+  vim.lsp.buf.code_action({apply=true}) end)

@@ -47,5 +47,11 @@ return {
       end,
       fold_virt_text_handler = handler
     })
+
+    -- Make Folded and FoldColumn transparent
+    vim.cmd([[
+      highlight Folded guibg=NONE guifg=NONE
+      highlight FoldColumn guibg=NONE guifg=NONE
+    ]])
   end
 }

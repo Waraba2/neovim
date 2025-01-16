@@ -24,7 +24,10 @@ return {
 				inverse = true, -- invert background for search, diffs, statuslines and errors
 				contrast = "", -- can be "hard", "soft" or empty string
 				palette_overrides = {},
-				overrides = {},
+				overrides = {
+          Folded = { bg = "NONE", fg = "NONE" },
+					FoldColumn = { bg = "NONE", fg = "NONE" },
+        },
 				dim_inactive = false,
 				transparent_mode = false,
 			})
