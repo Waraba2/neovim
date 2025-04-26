@@ -25,8 +25,6 @@ return {
           "gopls",
           "html",
           "ocamllsp",
-          'intelephense', -- for PHP
-          'prismals', -- for Prisma
           "sqlls",
           "biome",
           "emmet_language_server"
